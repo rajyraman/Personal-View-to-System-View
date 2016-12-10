@@ -1,0 +1,76 @@
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="ryr.userquery.promoteToSavedView.Button.CustomAction" Location="Mscrm.SubGrid.userquery.MainTab.View.Controls._children" Sequence="25">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:ryr.userquery.promoteToSavedView.Button.Alt" Command="ryr.userquery.promoteToSavedView.Command" Id="ryr.userquery.promoteToSavedView.Button" Image32by32="$webresource:images_/Promote_To_Saved_View_32.png" Image16by16="$webresource:images_/Promote_To_Saved_View_16.png" LabelText="$LocLabels:ryr.userquery.promoteToSavedView.Button.LabelText" Sequence="25" TemplateAlias="o1" ToolTipTitle="$LocLabels:ryr.userquery.promoteToSavedView.Button.ToolTipTitle" ToolTipDescription="$LocLabels:ryr.userquery.promoteToSavedView.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.SubGrid.userquery.MainTab.View.SetDefaultView">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountExactlyOne" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.UserQueryActions.setEntityDefaultView" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="ryr.userquery.promoteToSavedView.Command">
+      <EnableRules>
+        <EnableRule Id="ryr.userquery.promoteToSavedView.EnableRule" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="ryr.userquery.promoteToSavedView.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="RYR.convertPersonalView" Library="$webresource:scripts_/userquery.js">
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="ryr.userquery.promoteToSavedView.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Global" AppliesTo="PrimaryEntity" EntityName="savedquery" Default="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.SelectionCountExactlyOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+      </EnableRule>
+      <EnableRule Id="ryr.userquery.promoteToSavedView.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Default="false" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.Alt">
+      <Titles>
+        <Title description="Promote to System View" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.LabelText">
+      <Titles>
+        <Title description="Promote to System View" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create new System View from this personal view" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Promote to System View" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>
