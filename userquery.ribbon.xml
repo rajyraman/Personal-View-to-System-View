@@ -1,4 +1,5 @@
-<RibbonDiffXml>
+<?xml version="1.0" encoding="utf-16"?>
+<RibbonDiffXml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CustomActions>
     <CustomAction Id="ryr.userquery.promoteToSavedView.Button.CustomAction" Location="Mscrm.SubGrid.userquery.MainTab.View.Controls._children" Sequence="25">
       <CommandUIDefinition>
@@ -7,7 +8,7 @@
     </CustomAction>
   </CustomActions>
   <Templates>
-    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+    <RibbonTemplates Id="Mscrm.Templates" />
   </Templates>
   <CommandDefinitions>
     <CommandDefinition Id="Mscrm.SubGrid.userquery.MainTab.View.SetDefaultView">
@@ -29,7 +30,7 @@
         <DisplayRule Id="ryr.userquery.promoteToSavedView.DisplayRule" />
       </DisplayRules>
       <Actions>
-        <JavaScriptFunction FunctionName="RYR.convertPersonalView" Library="$webresource:scripts_/userquery.js">
+        <JavaScriptFunction FunctionName="RYR.convertPersonalView" Library="$webresource:scripts_/userquery.ribbon.js">
           <CrmParameter Value="SelectedControlSelectedItemReferences" />
         </JavaScriptFunction>
       </Actions>
@@ -39,7 +40,7 @@
     <TabDisplayRules />
     <DisplayRules>
       <DisplayRule Id="ryr.userquery.promoteToSavedView.DisplayRule">
-        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Global" AppliesTo="PrimaryEntity" EntityName="savedquery" Default="false" />
+        <MiscellaneousPrivilegeRule PrivilegeName="CreateQuery" PrivilegeDepth="Global" Default="false" />
       </DisplayRule>
     </DisplayRules>
     <EnableRules>
@@ -52,12 +53,12 @@
     </EnableRules>
   </RuleDefinitions>
   <LocLabels>
-    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.Alt">
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.LabelText">
       <Titles>
         <Title description="Promote to System View" languagecode="1033" />
       </Titles>
     </LocLabel>
-    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.LabelText">
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.ToolTipTitle">
       <Titles>
         <Title description="Promote to System View" languagecode="1033" />
       </Titles>
@@ -67,7 +68,7 @@
         <Title description="Create new System View from this personal view" languagecode="1033" />
       </Titles>
     </LocLabel>
-    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.ToolTipTitle">
+    <LocLabel Id="ryr.userquery.promoteToSavedView.Button.Alt">
       <Titles>
         <Title description="Promote to System View" languagecode="1033" />
       </Titles>
